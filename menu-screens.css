@@ -1,0 +1,592 @@
+#gachaScreen,
+#mapSelectScreen,
+#bagScreen,
+#codexScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+
+#gachaPanel,
+#mapSelectPanel,
+#bagPanel,
+#codexPanel {
+  width: min(820px, calc(100vw - 56px));
+  max-height: calc(100vh - 56px);
+  overflow: auto;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+#codexPanel {
+  position: relative;
+  padding-top: 74px;
+}
+
+#gachaPanel {
+  text-align: center;
+}
+
+#gachaPanel h2 {
+  font-size: 34px;
+  color: #ffd39b;
+}
+
+#gachaPanel p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+#gachaRollBtn,
+#bStartWaveBtn,
+#battleOverlayBackBtn,
+.mapCard {
+  background: linear-gradient(135deg, #ff9f76, #ff6d7d);
+}
+
+#gachaResult {
+  min-height: 38px;
+  margin: 12px 0 18px;
+  font-size: 18px;
+}
+
+#gachaChestList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 20px 0 16px;
+}
+
+.gachaChestBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  text-align: left;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.gachaChestBtn strong {
+  font-size: 22px;
+}
+
+.gachaChestEmoji {
+  font-size: 28px;
+}
+
+.gachaChestCost {
+  color: #ffd39b;
+  font-size: 13px;
+}
+
+.gachaChestHint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#gachaPanel h3 {
+  margin-bottom: 12px;
+  color: var(--accent-soft);
+}
+
+#gachaCollection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+#gachaBackBtn,
+#mapBackBtn {
+  margin-top: 18px;
+  padding: 12px 18px;
+}
+
+#gachaBackBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #dce5fb;
+}
+
+#bagBackBtn {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 214, 170, 0.32);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 159, 118, 0.96), rgba(255, 109, 125, 0.96));
+  box-shadow: 0 18px 34px rgba(255, 109, 125, 0.24);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+#bagBackBtn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 22px 40px rgba(255, 109, 125, 0.3);
+}
+
+#mapCardList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+#bagSummary {
+  margin: 18px 0 14px;
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+#equippedBagList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.equippedSlot {
+  min-height: 112px;
+  padding: 12px 10px;
+  border: 1px dashed rgba(255, 210, 168, 0.28);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+.equippedSlot strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.equippedSlotEmpty {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#bagCollection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+#codexCollection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.codexCard {
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  transition: filter 0.18s ease, transform 0.18s ease, opacity 0.18s ease;
+}
+
+.codexCard.is-owned {
+  cursor: pointer;
+}
+
+.codexCard:not(.is-owned) {
+  filter: grayscale(0.85) brightness(0.52);
+}
+
+.codexCard.is-owned {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+.codexCard.is-active {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08) inset,
+    0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.codexCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.codexCardEmoji {
+  font-size: 34px;
+}
+
+.codexMeta {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.codexPreviewBtn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 156, 227, 0.32), rgba(140, 108, 255, 0.28));
+  border: 1px solid rgba(255, 156, 227, 0.24);
+}
+
+#codexDetail {
+  display: none !important;
+}
+
+.codexDetailCard {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 18px;
+  padding: 20px;
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  box-shadow:
+    0 22px 42px rgba(0, 0, 0, 0.24),
+    0 0 38px rgba(255, 255, 255, 0.05);
+}
+
+.codexDetailVisual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 46%),
+    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  text-align: center;
+}
+
+.codexDetailGrade {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.codexDetailEmoji {
+  font-size: 92px;
+  line-height: 1;
+  text-shadow: 0 0 24px rgba(255,255,255,0.16);
+}
+
+.codexDetailName {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff2dd;
+}
+
+.codexDetailOwned,
+.codexDetailStats,
+.codexDetailSubtitle,
+.codexDetailLimit {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.codexDetailInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.codexDetailTitleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.codexDetailTitle {
+  color: #ffe2b8;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.codexDetailLimit {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  white-space: nowrap;
+}
+
+.codexDetailDesc {
+  display: grid;
+  gap: 10px;
+}
+
+.codexDetailLine {
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.04);
+  color: #e7efff;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+#codexTooltip {
+  position: fixed;
+  z-index: 60;
+  width: min(340px, calc(100vw - 24px));
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 42%),
+    linear-gradient(180deg, rgba(18, 24, 46, 0.98), rgba(7, 10, 23, 0.98));
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(255,255,255,0.04) inset;
+  backdrop-filter: blur(14px);
+  pointer-events: none;
+}
+
+.codexTooltipHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.codexTooltipEmoji {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.codexTooltipName {
+  color: #fff2dd;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.codexTooltipGrade,
+.codexTooltipMeta,
+.codexTooltipLimit {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.codexTooltipMeta {
+  margin-top: 10px;
+}
+
+.codexTooltipLines {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.codexTooltipLine {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: #e7efff;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+#codexBackBtn {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  margin-top: 0;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 220, 190, 0.22);
+  background: linear-gradient(135deg, rgba(255, 170, 108, 0.92), rgba(255, 111, 143, 0.92));
+  color: #24120d;
+  box-shadow: 0 16px 32px rgba(255, 110, 142, 0.2);
+}
+
+.bagCard {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.bagCard.is-selected {
+  border-color: rgba(255, 210, 168, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 210, 168, 0.3) inset;
+}
+
+.bagCard.bag-grade-ethereal.is-selected {
+  border-color: rgba(255, 158, 231, 0.34);
+  box-shadow: 0 0 0 1px rgba(255, 158, 231, 0.14) inset;
+}
+
+.bagCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bagCardEmoji {
+  font-size: 28px;
+}
+
+.bagCardMeta {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.bagCard::before,
+.equippedSlot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.bag-grade-uncommon {
+  border-color: rgba(120, 183, 255, 0.18);
+  background: linear-gradient(180deg, rgba(104, 152, 227, 0.11), rgba(255, 255, 255, 0.03));
+}
+
+.bag-grade-rare {
+  border-color: rgba(120, 221, 147, 0.24);
+  background:
+    linear-gradient(180deg, rgba(82, 182, 114, 0.12), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(74, 116, 86, 0.18), rgba(255,255,255,0.02));
+  box-shadow: 0 12px 28px rgba(78, 168, 109, 0.1);
+}
+
+.bag-grade-epic {
+  border-color: rgba(255, 215, 111, 0.28);
+  background:
+    linear-gradient(180deg, rgba(181, 142, 56, 0.16), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(70, 53, 14, 0.24), rgba(255,255,255,0.03));
+  box-shadow: 0 14px 30px rgba(255, 202, 94, 0.12);
+}
+
+.bag-grade-legend {
+  border-color: rgba(182, 140, 255, 0.34);
+  background:
+    linear-gradient(180deg, rgba(118, 76, 201, 0.18), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(55, 28, 99, 0.26), rgba(255,255,255,0.03));
+  box-shadow: 0 16px 32px rgba(155, 114, 255, 0.15);
+}
+
+.bag-grade-mythic {
+  border-color: rgba(255, 94, 115, 0.34);
+  background:
+    linear-gradient(180deg, rgba(194, 61, 92, 0.17), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(89, 18, 36, 0.28), rgba(255,255,255,0.03));
+  box-shadow: 0 18px 34px rgba(255, 94, 115, 0.16);
+}
+
+.bag-grade-divine {
+  border-color: rgba(255, 183, 124, 0.42);
+  background:
+    linear-gradient(180deg, rgba(255, 183, 124, 0.2), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(88, 42, 15, 0.28), rgba(255,244,214,0.05));
+  box-shadow:
+    0 18px 38px rgba(255, 170, 95, 0.18),
+    0 0 34px rgba(255, 208, 138, 0.08);
+}
+
+.bag-grade-divine::before,
+.equippedSlot.bag-grade-divine::before {
+  opacity: 1;
+  background:
+    radial-gradient(circle at top, rgba(255, 239, 205, 0.16), transparent 46%),
+    linear-gradient(125deg, transparent 18%, rgba(255,255,255,0.08) 34%, transparent 54%);
+}
+
+.bag-grade-ethereal {
+  border-color: rgba(255, 130, 226, 0.5);
+  background:
+    linear-gradient(180deg, rgba(188, 76, 199, 0.22), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(53, 16, 76, 0.48), rgba(14, 9, 32, 0.22));
+  box-shadow:
+    0 22px 44px rgba(182, 75, 255, 0.22),
+    0 0 44px rgba(255, 102, 217, 0.12),
+    0 0 88px rgba(111, 74, 255, 0.08);
+}
+
+.bag-grade-ethereal::before,
+.equippedSlot.bag-grade-ethereal::before {
+  opacity: 1;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 247, 255, 0.22), transparent 20%),
+    radial-gradient(circle at 78% 0%, rgba(255, 137, 232, 0.18), transparent 34%),
+    linear-gradient(120deg, transparent 16%, rgba(255,255,255,0.1) 33%, transparent 52%),
+    conic-gradient(from 180deg, rgba(255,255,255,0), rgba(255,124,227,0.08), rgba(255,255,255,0), rgba(125,90,255,0.08), rgba(255,255,255,0));
+  mix-blend-mode: screen;
+}
+
+.bag-grade-ethereal .bagCardEmoji,
+.equippedSlot.bag-grade-ethereal .bagCardEmoji {
+  text-shadow:
+    0 0 16px rgba(255, 160, 239, 0.45),
+    0 0 34px rgba(145, 105, 255, 0.2);
+}
+
+.bag-grade-divine .bagCardEmoji,
+.equippedSlot.bag-grade-divine .bagCardEmoji {
+  text-shadow: 0 0 14px rgba(255, 210, 142, 0.36);
+}
+
+.bagToggleBtn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(130, 183, 255, 0.28), rgba(127, 231, 196, 0.24));
+  border: 1px solid rgba(130, 183, 255, 0.24);
+}
+
+.mapCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 16px 34px rgba(255, 109, 125, 0.24);
+}
+
+.mapCard strong {
+  font-size: 24px;
+}
+
+.mapCard:last-child {
+  background: linear-gradient(135deg, #ff944b, #c94622);
+}
+
+.mapBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 12px;
+}

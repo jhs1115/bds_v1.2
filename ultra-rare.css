@@ -1,0 +1,945 @@
+#ultraRareEffect {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(255, 235, 184, 0.2), rgba(8, 10, 24, 0.9)),
+    linear-gradient(180deg, rgba(20, 8, 38, 0.52), rgba(5, 7, 18, 0.94));
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  animation: ultraRareFadeIn 0.25s ease-out;
+}
+
+#ultraRareEffect.is-divine {
+  background:
+    radial-gradient(circle at center, rgba(255, 233, 187, 0.34), rgba(11, 13, 26, 0.92)),
+    linear-gradient(180deg, rgba(49, 24, 7, 0.48), rgba(6, 9, 21, 0.96));
+}
+
+#ultraRareEffect.is-ethereal {
+  background:
+    radial-gradient(circle at center, rgba(255, 72, 162, 0.16), rgba(8, 4, 18, 0.92)),
+    radial-gradient(circle at 50% 34%, rgba(167, 61, 255, 0.14), transparent 44%),
+    linear-gradient(180deg, rgba(28, 3, 12, 0.72), rgba(5, 4, 14, 0.97));
+}
+
+#ultraRareEffect.is-nova {
+  background:
+    radial-gradient(circle at center, rgba(150, 220, 255, 0.11), rgba(7, 10, 28, 0.9)),
+    radial-gradient(circle at 50% 34%, rgba(92, 146, 255, 0.12), transparent 46%),
+    linear-gradient(180deg, rgba(7, 20, 46, 0.72), rgba(4, 9, 24, 0.97));
+}
+
+#ultraRareEffect.is-leaving {
+  animation: ultraRareFadeOut 0.7s ease forwards;
+}
+
+.etherealBlackout,
+.etherealFlash,
+.etherealSparkle,
+.apolloFlameVeil,
+.apolloSunHalo,
+.novaVoid,
+.novaBlueFlash,
+.novaNebula,
+.novaStarfield,
+.novaConstellation,
+.novaBladeRain,
+.novaRift,
+.novaJudgementBlade,
+.novaJudgementCore {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.etherealBlackout {
+  background: #000;
+  animation: etherealBlackout 3.1s ease-out forwards;
+}
+
+.etherealSparkle {
+  opacity: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 173, 251, 0.98), rgba(168, 81, 255, 0.42) 22%, rgba(0, 0, 0, 0) 52%),
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,0.95), rgba(255,255,255,0) 12%);
+  mix-blend-mode: screen;
+}
+
+.etherealSparkle-a {
+  animation: etherealSparkleA 1.1s ease-out 2.85s forwards;
+}
+
+.etherealSparkle-b {
+  animation: etherealSparkleB 1.45s ease-out 3.5s forwards;
+}
+
+.etherealFlash {
+  background:
+    radial-gradient(circle at center, rgba(255, 141, 236, 0.95), rgba(148, 70, 255, 0.45) 28%, rgba(0, 0, 0, 0) 62%),
+    radial-gradient(circle at center, rgba(255,255,255,0.9), rgba(255,255,255,0) 18%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: etherealFlash 1.9s cubic-bezier(0.15, 0.85, 0.22, 1) 4.1s forwards;
+}
+
+.apolloFlameVeil,
+.apolloSunHalo {
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.apolloFlameVeil {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 248, 210, 0.24), rgba(255, 173, 78, 0.18) 18%, rgba(255, 95, 72, 0.12) 34%, rgba(0,0,0,0) 58%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(255,183,97,0.22), rgba(255,255,255,0), rgba(255,120,87,0.2), rgba(255,255,255,0));
+  animation: apolloFlameVeil 1.8s ease-out 0.35s forwards;
+}
+
+.apolloSunHalo {
+  inset: 50% auto auto 50%;
+  width: min(60vw, 720px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle, rgba(255,255,255,0) 42%, rgba(255, 228, 154, 0.18) 56%, rgba(255,255,255,0) 70%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(255,212,124,0.82), rgba(255,255,255,0), rgba(255,128,82,0.76), rgba(255,255,255,0));
+  filter: blur(8px);
+  animation: apolloSunHalo 2.6s linear infinite, apolloFlameVeil 1.6s ease-out 0.42s forwards;
+}
+
+.novaVoid {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(191, 237, 255, 0.06), rgba(17, 28, 68, 0.15) 18%, rgba(0, 0, 0, 0.94) 56%),
+    linear-gradient(180deg, rgba(2, 6, 20, 0.98), rgba(3, 8, 28, 1));
+  opacity: 0;
+  animation: novaVoidOpen 4.2s ease-out forwards;
+}
+
+.novaBlueFlash {
+  opacity: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,0.78), rgba(205, 244, 255, 0.64) 11%, rgba(111, 201, 255, 0.28) 25%, rgba(47, 103, 255, 0.1) 40%, rgba(0,0,0,0) 66%),
+    radial-gradient(circle at 50% 42%, rgba(184, 232, 255, 0.24), rgba(0,0,0,0) 36%);
+  mix-blend-mode: screen;
+  animation: novaBlueFlash 1.28s cubic-bezier(0.16, 0.88, 0.22, 1) 3.08s forwards;
+}
+
+.novaNebula {
+  opacity: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(196, 239, 255, 0.2), rgba(79, 156, 255, 0.11) 24%, rgba(0, 0, 0, 0) 56%),
+    radial-gradient(circle at 34% 30%, rgba(111, 214, 255, 0.16), rgba(0,0,0,0) 36%);
+  mix-blend-mode: screen;
+  filter: blur(2px) saturate(1.05);
+  animation: novaNebulaPulse 3.8s ease-out 3.3s forwards;
+}
+
+.novaNebula-b {
+  background:
+    radial-gradient(circle at 60% 46%, rgba(255,255,255,0.1), rgba(124, 177, 255, 0.08) 22%, rgba(0,0,0,0) 54%),
+    radial-gradient(circle at 72% 24%, rgba(143, 219, 255, 0.12), rgba(0,0,0,0) 34%);
+  animation-delay: 4.2s;
+}
+
+.novaStarfield {
+  opacity: 0;
+  background:
+    radial-gradient(circle at 15% 22%, rgba(255,255,255,0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 32% 66%, rgba(181, 236, 255, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 26%, rgba(255,255,255,0.92) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 58%, rgba(146, 213, 255, 0.86) 0 1px, transparent 2px),
+    radial-gradient(circle at 56% 74%, rgba(255,255,255,0.88) 0 1px, transparent 2px);
+  animation: novaStarfield 3.4s ease-out 3.2s forwards;
+}
+
+.novaConstellation {
+  inset: 50% auto auto 50%;
+  width: min(70vw, 760px);
+  height: min(70vw, 760px);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  filter: drop-shadow(0 0 14px rgba(143, 223, 255, 0.34));
+  animation: novaConstellationAppear 2.1s ease-out 3.95s forwards;
+}
+
+.novaNode,
+.novaLine {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.novaNode {
+  width: 18px;
+  height: 18px;
+  margin: -9px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.88) 0 28%, rgba(196, 240, 255, 0.74) 48%, rgba(89, 173, 255, 0.22) 72%, rgba(0,0,0,0) 100%);
+  box-shadow:
+    0 0 14px rgba(175, 233, 255, 0.42),
+    0 0 28px rgba(101, 182, 255, 0.18);
+}
+
+.novaNode.node-a { left: 50%; top: 10%; }
+.novaNode.node-b { left: 68%; top: 28%; }
+.novaNode.node-c { left: 62%; top: 58%; }
+.novaNode.node-d { left: 50%; top: 78%; }
+.novaNode.node-e { left: 34%; top: 56%; }
+.novaNode.node-f { left: 30%; top: 26%; }
+
+.novaLine {
+  left: 50%;
+  top: 50%;
+  height: 4px;
+  border-radius: 999px;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, rgba(212, 247, 255, 0.05), rgba(212, 247, 255, 0.78), rgba(114, 182, 255, 0.42));
+  box-shadow: 0 0 14px rgba(122, 203, 255, 0.2);
+}
+
+.novaLine.line-a { width: 168px; transform: translate(-4px, -235px) rotate(34deg); }
+.novaLine.line-b { width: 182px; transform: translate(136px, -126px) rotate(98deg); }
+.novaLine.line-c { width: 136px; transform: translate(118px, 98px) rotate(144deg); }
+.novaLine.line-d { width: 134px; transform: translate(0, 214px) rotate(202deg); }
+.novaLine.line-e { width: 164px; transform: translate(-128px, 90px) rotate(262deg); }
+.novaLine.line-f { width: 150px; transform: translate(-146px, -132px) rotate(322deg); }
+
+.novaRift {
+  opacity: 0;
+  background:
+    linear-gradient(90deg, transparent 46%, rgba(210, 247, 255, 0.56) 49%, rgba(112, 170, 255, 0.62) 50%, rgba(210, 247, 255, 0.56) 51%, transparent 54%);
+  mix-blend-mode: screen;
+  filter: blur(6px);
+  transform: scaleY(0.18) rotate(12deg);
+  animation: novaRiftOpen 1.6s cubic-bezier(0.18, 0.86, 0.22, 1) 4.1s forwards;
+}
+
+.novaRift-b {
+  transform: scaleY(0.16) rotate(-14deg);
+  opacity: 0;
+  animation-delay: 4.24s;
+}
+
+.novaBladeRain span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16px;
+  height: 220px;
+  margin-left: -8px;
+  margin-top: -110px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(210, 247, 255, 0.72), rgba(114, 201, 255, 0.42), rgba(255,255,255,0));
+  box-shadow: 0 0 24px rgba(125, 206, 255, 0.24);
+  opacity: 0;
+}
+
+.novaBladeRain span:nth-child(1) { transform: rotate(0deg) translateY(-330px); animation: novaBladeDrop 1.2s ease-out 4.05s forwards; }
+.novaBladeRain span:nth-child(2) { transform: rotate(60deg) translateY(-350px); animation: novaBladeDrop 1.2s ease-out 4.15s forwards; }
+.novaBladeRain span:nth-child(3) { transform: rotate(120deg) translateY(-320px); animation: novaBladeDrop 1.2s ease-out 4.25s forwards; }
+.novaBladeRain span:nth-child(4) { transform: rotate(180deg) translateY(-340px); animation: novaBladeDrop 1.2s ease-out 4.35s forwards; }
+.novaBladeRain span:nth-child(5) { transform: rotate(240deg) translateY(-325px); animation: novaBladeDrop 1.2s ease-out 4.45s forwards; }
+.novaBladeRain span:nth-child(6) { transform: rotate(300deg) translateY(-345px); animation: novaBladeDrop 1.2s ease-out 4.55s forwards; }
+
+.novaJudgementBlade {
+  left: 50%;
+  top: 50%;
+  width: 44px;
+  height: min(88vh, 980px);
+  margin-left: -22px;
+  margin-top: calc(min(88vh, 980px) / -2);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0), rgba(236, 251, 255, 0.78) 14%, rgba(137, 221, 255, 0.62) 48%, rgba(92, 135, 255, 0.5) 74%, rgba(255,255,255,0));
+  box-shadow:
+    0 0 42px rgba(120, 210, 255, 0.22),
+    0 0 100px rgba(84, 124, 255, 0.12);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translateY(-120px) scaleY(0.42);
+  animation: novaJudgementDescend 1.8s cubic-bezier(0.12, 0.9, 0.16, 1) 4.36s forwards;
+}
+
+.novaJudgementCore {
+  opacity: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,0.72) 0 4%, rgba(194, 241, 255, 0.44) 12%, rgba(111, 165, 255, 0.2) 24%, rgba(0,0,0,0) 42%);
+  mix-blend-mode: screen;
+  animation: novaJudgementCore 1.5s ease-out 4.58s forwards;
+}
+
+.novaRevealWrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 7vh;
+}
+
+.novaNameplate {
+  width: min(620px, calc(100vw - 48px));
+  padding: 24px 28px;
+  border: 1px solid rgba(185, 233, 255, 0.18);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(7, 18, 42, 0.76), rgba(4, 8, 22, 0.9)),
+    radial-gradient(circle at top, rgba(170, 231, 255, 0.05), transparent 56%);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.42),
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    0 0 48px rgba(99, 191, 255, 0.1);
+  backdrop-filter: blur(16px);
+  animation: novaNameplateRise 1s cubic-bezier(0.18, 0.84, 0.22, 1) 4.65s both;
+}
+
+.novaAuraLabel {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 240, 255, 0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+  color: #eaf8ff;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.novaEyebrow {
+  margin-top: 14px;
+  color: #d8efff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.novaIdentityRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.novaEmoji {
+  font-size: 84px;
+  line-height: 1;
+  text-shadow:
+    0 0 24px rgba(219, 247, 255, 0.3),
+    0 0 54px rgba(113, 194, 255, 0.22);
+}
+
+.novaName {
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.novaGrade {
+  margin-top: 6px;
+  color: #cfe5ff;
+  font-size: 13px;
+}
+
+.novaLore {
+  margin-top: 16px;
+  color: #f0f8ff;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.ultraRareBackdrop,
+.ultraRareShockwave,
+.ultraRareHalo,
+.ultraRareBurst {
+  position: absolute;
+  inset: 0;
+}
+
+.ultraRareBackdrop {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,0.18), transparent 20%),
+    radial-gradient(circle at 50% 42%, rgba(255, 209, 132, 0.2), transparent 34%);
+  opacity: 0.88;
+}
+
+#ultraRareEffect.is-ethereal .ultraRareBackdrop {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,0.08), transparent 14%),
+    radial-gradient(circle at 50% 42%, rgba(255, 70, 170, 0.22), transparent 28%),
+    radial-gradient(circle at 50% 42%, rgba(132, 60, 255, 0.18), transparent 42%);
+  animation: etherealArrival 2.1s ease-out 4s both;
+}
+
+#ultraRareEffect.is-nova .ultraRareBackdrop {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,0.12), transparent 12%),
+    radial-gradient(circle at 50% 42%, rgba(122, 202, 255, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 42%, rgba(84, 122, 255, 0.14), transparent 44%);
+  animation: etherealArrival 2s ease-out 4s both;
+}
+
+.ultraRareShockwave {
+  inset: 50% auto auto 50%;
+  width: min(92vw, 1100px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.16);
+  transform: translate(-50%, -50%);
+  animation: ultraRarePulseRing 1.8s ease-out infinite;
+}
+
+.ultraRareShockwave.shockwave-b {
+  width: min(72vw, 880px);
+  animation-delay: 0.24s;
+}
+
+.ultraRareHalo {
+  inset: 50% auto auto 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+.ultraRareHalo.halo-outer {
+  width: min(84vw, 980px);
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, rgba(255,255,255,0) 44%, rgba(255,234,192,0.2) 58%, rgba(255,255,255,0) 69%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(255,248,208,0.9), rgba(255,255,255,0), rgba(255,214,132,0.72), rgba(255,255,255,0));
+  filter: blur(8px);
+  animation: ultraRareSpin 4s linear infinite;
+}
+
+.ultraRareHalo.halo-inner {
+  width: min(50vw, 560px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.95) 0 8%, rgba(255,223,178,0.55) 18%, rgba(255,255,255,0) 58%),
+    conic-gradient(from 90deg, rgba(255,255,255,0), rgba(255,242,187,0.9), rgba(255,255,255,0), rgba(255,210,128,0.8), rgba(255,255,255,0));
+  filter: blur(4px) saturate(1.2);
+  animation: ultraRareSpinReverse 2.8s linear infinite;
+}
+
+#ultraRareEffect.is-ethereal .ultraRareHalo.halo-outer {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0) 41%, rgba(255, 93, 168, 0.16) 58%, rgba(255,255,255,0) 72%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(255,112,216,0.95), rgba(255,255,255,0), rgba(145,84,255,0.86), rgba(255,255,255,0));
+  filter: blur(10px) saturate(1.3);
+  animation: ultraRareSpin 4s linear infinite, etherealArrival 1.8s ease-out 4s both;
+}
+
+#ultraRareEffect.is-nova .ultraRareHalo.halo-outer {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0) 41%, rgba(126, 211, 255, 0.16) 58%, rgba(255,255,255,0) 72%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(182,239,255,0.95), rgba(255,255,255,0), rgba(92,140,255,0.88), rgba(255,255,255,0));
+  filter: blur(10px) saturate(1.35);
+  animation: ultraRareSpin 4s linear infinite, etherealArrival 1.8s ease-out 4s both;
+}
+
+#ultraRareEffect.is-ethereal .ultraRareHalo.halo-inner {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.88) 0 5%, rgba(255, 104, 213, 0.5) 14%, rgba(76, 8, 126, 0.22) 25%, rgba(255,255,255,0) 60%),
+    conic-gradient(from 90deg, rgba(255,255,255,0), rgba(255,80,194,0.95), rgba(255,255,255,0), rgba(130,72,255,0.84), rgba(255,255,255,0));
+  animation: ultraRareSpinReverse 2.8s linear infinite, etherealArrival 1.8s ease-out 4.08s both;
+}
+
+#ultraRareEffect.is-nova .ultraRareHalo.halo-inner {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.92) 0 5%, rgba(174, 231, 255, 0.56) 14%, rgba(32, 75, 170, 0.24) 25%, rgba(255,255,255,0) 60%),
+    conic-gradient(from 90deg, rgba(255,255,255,0), rgba(200,244,255,0.95), rgba(255,255,255,0), rgba(86,138,255,0.88), rgba(255,255,255,0));
+  animation: ultraRareSpinReverse 2.8s linear infinite, etherealArrival 1.8s ease-out 4.08s both;
+}
+
+.ultraRareBurst {
+  inset: 50% auto auto 50%;
+  width: min(60vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.95) 0 5%, rgba(255,230,186,0.58) 14%, rgba(255,191,92,0.18) 28%, rgba(255,255,255,0) 62%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(255,250,219,0.98), rgba(255,255,255,0), rgba(255,213,136,0.9), rgba(255,255,255,0));
+  transform: translate(-50%, -50%);
+  filter: blur(4px) saturate(1.18);
+  animation: ultraRareSpin 3s linear infinite;
+}
+
+#ultraRareEffect.is-ethereal .ultraRareBurst {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.9) 0 3%, rgba(255,98,206,0.62) 12%, rgba(112,36,203,0.28) 26%, rgba(255,255,255,0) 60%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(255,118,215,0.98), rgba(255,255,255,0), rgba(117,88,255,0.96), rgba(255,255,255,0));
+  filter: blur(5px) saturate(1.35);
+  animation: ultraRareSpin 3s linear infinite, etherealArrival 1.8s ease-out 4.12s both;
+}
+
+#ultraRareEffect.is-nova .ultraRareBurst {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.92) 0 3%, rgba(150,225,255,0.66) 12%, rgba(66, 108, 255, 0.28) 26%, rgba(255,255,255,0) 60%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(202,244,255,0.98), rgba(255,255,255,0), rgba(111,156,255,0.96), rgba(255,255,255,0));
+  filter: blur(5px) saturate(1.4);
+  animation: ultraRareSpin 3s linear infinite, etherealArrival 1.8s ease-out 4.12s both;
+}
+
+.ultraRareVeins {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: min(110vw, 1400px);
+  height: min(110vw, 1400px);
+  transform: translate(-50%, -50%);
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(255,255,255,0.12) 50%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(255,255,255,0.1) 50%, transparent 52%),
+    linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.08) 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, rgba(255,255,255,0.08) 50%, transparent 51%);
+  opacity: 0.55;
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 0 18%, rgba(0,0,0,0) 65%);
+  animation: ultraRareVeinsPulse 1.8s ease-in-out infinite;
+}
+
+#ultraRareEffect.is-ethereal .ultraRareVeins {
+  opacity: 0.74;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(255,116,205,0.16) 50%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(167,99,255,0.14) 50%, transparent 52%),
+    linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.08) 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, rgba(255,76,182,0.14) 50%, transparent 51%);
+}
+
+#ultraRareEffect.is-nova .ultraRareVeins {
+  opacity: 0.78;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(146, 221, 255, 0.16) 50%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(108, 166, 255, 0.15) 50%, transparent 52%),
+    linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.08) 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, rgba(157, 214, 255, 0.14) 50%, transparent 51%);
+}
+
+.ultraRareRunes,
+.ultraRareShards {
+  position: absolute;
+  inset: 0;
+}
+
+.ultraRareRunes span,
+.ultraRareShards span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+}
+
+.ultraRareRunes span {
+  width: 18px;
+  height: 18px;
+  margin: -9px;
+  border: 2px solid rgba(255, 241, 210, 0.88);
+  border-radius: 5px;
+  box-shadow: 0 0 18px rgba(255, 222, 158, 0.5);
+  animation: ultraRareRuneOrbit 3s linear infinite;
+}
+
+.ultraRareRunes span:nth-child(1) { transform: rotate(0deg) translateY(-220px) rotate(0deg); animation-delay: 0s; }
+.ultraRareRunes span:nth-child(2) { transform: rotate(60deg) translateY(-220px) rotate(-60deg); animation-delay: -0.5s; }
+.ultraRareRunes span:nth-child(3) { transform: rotate(120deg) translateY(-220px) rotate(-120deg); animation-delay: -1s; }
+.ultraRareRunes span:nth-child(4) { transform: rotate(180deg) translateY(-220px) rotate(-180deg); animation-delay: -1.5s; }
+.ultraRareRunes span:nth-child(5) { transform: rotate(240deg) translateY(-220px) rotate(-240deg); animation-delay: -2s; }
+.ultraRareRunes span:nth-child(6) { transform: rotate(300deg) translateY(-220px) rotate(-300deg); animation-delay: -2.5s; }
+
+#ultraRareEffect.is-ethereal .ultraRareRunes span {
+  border-color: rgba(255, 104, 211, 0.86);
+  border-radius: 50%;
+  box-shadow: 0 0 22px rgba(255, 88, 197, 0.64);
+  animation-delay: 4.2s;
+}
+
+#ultraRareEffect.is-nova .ultraRareRunes span {
+  border-color: rgba(173, 235, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 0 24px rgba(121, 205, 255, 0.62);
+  animation-delay: 4.2s;
+}
+
+.ultraRareShards span {
+  width: 8px;
+  height: 160px;
+  margin-left: -4px;
+  margin-top: -80px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,247,216,0.92), rgba(255,255,255,0));
+  box-shadow: 0 0 22px rgba(255, 220, 154, 0.34);
+  animation: ultraRareShardDrift 2.2s ease-in-out infinite;
+}
+
+.ultraRareShards span:nth-child(1) { transform: rotate(0deg) translateY(-310px); animation-delay: 0s; }
+.ultraRareShards span:nth-child(2) { transform: rotate(45deg) translateY(-320px); animation-delay: -0.3s; }
+.ultraRareShards span:nth-child(3) { transform: rotate(90deg) translateY(-300px); animation-delay: -0.6s; }
+.ultraRareShards span:nth-child(4) { transform: rotate(135deg) translateY(-330px); animation-delay: -0.9s; }
+.ultraRareShards span:nth-child(5) { transform: rotate(180deg) translateY(-305px); animation-delay: -1.2s; }
+.ultraRareShards span:nth-child(6) { transform: rotate(225deg) translateY(-325px); animation-delay: -1.5s; }
+.ultraRareShards span:nth-child(7) { transform: rotate(270deg) translateY(-308px); animation-delay: -1.8s; }
+.ultraRareShards span:nth-child(8) { transform: rotate(315deg) translateY(-328px); animation-delay: -2.1s; }
+
+#ultraRareEffect.is-ethereal .ultraRareShards span {
+  width: 10px;
+  height: 200px;
+  margin-left: -5px;
+  margin-top: -100px;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,118,219,0.95), rgba(113,64,255,0.74), rgba(255,255,255,0));
+  box-shadow: 0 0 30px rgba(255, 97, 198, 0.5);
+  animation-delay: 4.18s;
+}
+
+#ultraRareEffect.is-nova .ultraRareShards span {
+  width: 12px;
+  height: 220px;
+  margin-left: -6px;
+  margin-top: -110px;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(214,247,255,0.98), rgba(111,183,255,0.76), rgba(255,255,255,0));
+  box-shadow: 0 0 32px rgba(122, 203, 255, 0.54);
+  animation-delay: 4.12s;
+}
+
+.ultraRareCardWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 1;
+  animation: ultraRareRise 0.8s cubic-bezier(0.18, 0.84, 0.26, 1) both;
+}
+
+.ultraRareAuraLabel {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+  color: #fff7de;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  box-shadow: 0 0 24px rgba(255, 219, 147, 0.2);
+}
+
+#ultraRareEffect.is-ethereal .ultraRareAuraLabel {
+  color: #ffe6ff;
+  box-shadow: 0 0 28px rgba(255, 90, 195, 0.28);
+  animation: etherealArrival 1.4s ease-out 4.28s both;
+}
+
+#ultraRareEffect.is-nova .ultraRareAuraLabel {
+  color: #e9f8ff;
+  box-shadow: 0 0 30px rgba(102, 195, 255, 0.32);
+  animation: etherealArrival 1.4s ease-out 4.28s both;
+}
+
+.ultraRareCard {
+  position: relative;
+  min-width: 360px;
+  padding: 34px 38px;
+  border: 2px solid rgba(255,255,255,0.36);
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(26, 20, 50, 0.94), rgba(8, 8, 21, 0.98)),
+    radial-gradient(circle at top, rgba(255,255,255,0.11), transparent 56%);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,255,255,0.05) inset,
+    0 0 60px rgba(255, 181, 111, 0.22);
+  text-align: center;
+  overflow: hidden;
+}
+
+.ultraRareCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 18%, rgba(255,255,255,0.12) 34%, transparent 48%),
+    radial-gradient(circle at top, rgba(255,255,255,0.1), transparent 40%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.ultraRareCrest {
+  position: absolute;
+  inset: 16px 16px auto auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0) 66%),
+    conic-gradient(from 0deg, rgba(255,255,255,0), rgba(255,239,187,0.68), rgba(255,255,255,0), rgba(255,205,122,0.52), rgba(255,255,255,0));
+  filter: blur(0.2px);
+  opacity: 0.8;
+  animation: ultraRareCrestSpin 5s linear infinite;
+}
+
+.ultraRareEyebrow {
+  color: #ffe4f4;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.ultraRareEmoji {
+  margin-top: 20px;
+  font-size: 106px;
+  text-shadow:
+    0 0 22px rgba(255,255,255,0.24),
+    0 0 48px rgba(255, 214, 132, 0.28);
+  animation: ultraRareBreath 1.5s ease-in-out infinite;
+}
+
+.ultraRareName {
+  margin-top: 12px;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 24px rgba(255,255,255,0.14);
+}
+
+.ultraRareGrade,
+.ultraRareOdds {
+  margin-top: 8px;
+  color: #e8dcff;
+}
+
+.ultraRareLore {
+  margin-top: 14px;
+  color: #fff2fd;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.ultraRareOdds {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #c9bedb;
+}
+
+.ultraRareCard.is-divine {
+  background:
+    linear-gradient(180deg, rgba(57, 29, 7, 0.94), rgba(12, 10, 24, 0.98)),
+    radial-gradient(circle at top, rgba(255,244,211,0.12), transparent 56%);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 0 76px rgba(255, 191, 104, 0.34);
+}
+
+.ultraRareCard.is-apollo {
+  background:
+    linear-gradient(180deg, rgba(60, 21, 6, 0.95), rgba(15, 8, 20, 0.99)),
+    radial-gradient(circle at top, rgba(255, 228, 150, 0.12), transparent 58%);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 0 76px rgba(255, 153, 68, 0.28);
+}
+
+.ultraRareCard.is-ethereal {
+  background:
+    linear-gradient(180deg, rgba(34, 8, 30, 0.96), rgba(8, 7, 22, 0.99)),
+    radial-gradient(circle at top, rgba(255,105,213,0.14), transparent 56%);
+  box-shadow:
+    0 34px 96px rgba(0,0,0,0.62),
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 0 120px rgba(255, 79, 194, 0.42),
+    0 0 220px rgba(106, 54, 255, 0.16);
+  animation: etherealArrival 1.9s cubic-bezier(0.14, 0.84, 0.18, 1) 4.3s both;
+}
+
+@keyframes novaNebulaPulse {
+  0% { opacity: 0; transform: scale(0.86); }
+  45% { opacity: 0.72; transform: scale(1.05); }
+  100% { opacity: 0.62; transform: scale(1); }
+}
+
+@keyframes novaBlueFlash {
+  0% { opacity: 0; transform: scale(0.58); filter: blur(28px) brightness(1.1); }
+  24% { opacity: 0.72; transform: scale(0.94); filter: blur(14px) brightness(1.25); }
+  54% { opacity: 0.44; transform: scale(1.04); filter: blur(8px) brightness(1.08); }
+  100% { opacity: 0; transform: scale(1.3); filter: blur(22px) brightness(1); }
+}
+
+@keyframes novaStarfield {
+  0% { opacity: 0; transform: scale(0.84); }
+  55% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 0.82; transform: scale(1); }
+}
+
+@keyframes novaConstellationAppear {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.74) rotate(-10deg); filter: blur(14px) drop-shadow(0 0 0 rgba(0,0,0,0)); }
+  54% { opacity: 0.86; transform: translate(-50%, -50%) scale(1.04) rotate(2deg); filter: blur(3px) drop-shadow(0 0 18px rgba(143, 223, 255, 0.46)); }
+  100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1) rotate(0deg); filter: blur(0) drop-shadow(0 0 12px rgba(143, 223, 255, 0.28)); }
+}
+
+@keyframes novaBladeDrop {
+  0% { opacity: 0; filter: blur(12px) brightness(1.12); }
+  35% { opacity: 0.74; }
+  100% { opacity: 0.52; filter: blur(0) brightness(1); }
+}
+
+@keyframes novaVoidOpen {
+  0% { opacity: 0; transform: scale(1.12); }
+  30% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes novaRiftOpen {
+  0% { opacity: 0; transform: scaleY(0.08) rotate(12deg); filter: blur(20px); }
+  45% { opacity: 0.78; transform: scaleY(1.04) rotate(12deg); filter: blur(8px); }
+  100% { opacity: 0.56; transform: scaleY(0.92) rotate(12deg); filter: blur(4px); }
+}
+
+@keyframes novaJudgementDescend {
+  0% { opacity: 0; transform: translateY(-180px) scaleY(0.22); filter: blur(24px) brightness(1.18); }
+  54% { opacity: 0.8; transform: translateY(18px) scaleY(1.06); filter: blur(8px) brightness(1.05); }
+  100% { opacity: 0.72; transform: translateY(0) scaleY(1); filter: blur(0) brightness(1); }
+}
+
+@keyframes novaJudgementCore {
+  0% { opacity: 0; transform: scale(0.46); }
+  44% { opacity: 0.72; transform: scale(1.14); }
+  100% { opacity: 0.56; transform: scale(1); }
+}
+
+@keyframes novaNameplateRise {
+  0% { opacity: 0; transform: translateY(44px) scale(0.92); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.ultraRareCard.is-ethereal::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0) 52%, rgba(255, 92, 194, 0.1) 66%, rgba(255,255,255,0) 74%),
+    conic-gradient(from 180deg, rgba(255,255,255,0), rgba(255,84,193,0.22), rgba(255,255,255,0), rgba(132,90,255,0.18), rgba(255,255,255,0));
+  mix-blend-mode: screen;
+  animation: ultraRareCardAuraSpin 6s linear infinite;
+}
+
+@keyframes ultraRareFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ultraRareFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes ultraRareSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(0.92); }
+  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1); }
+  to { transform: translate(-50%, -50%) rotate(360deg) scale(0.92); }
+}
+
+@keyframes ultraRareSpinReverse {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(0.96); }
+  50% { transform: translate(-50%, -50%) rotate(-180deg) scale(1.03); }
+  to { transform: translate(-50%, -50%) rotate(-360deg) scale(0.96); }
+}
+
+@keyframes ultraRarePulseRing {
+  0% { opacity: 0.15; transform: translate(-50%, -50%) scale(0.82); }
+  45% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.18); }
+}
+
+@keyframes ultraRareBreath {
+  0%, 100% { transform: scale(0.98); }
+  50% { transform: scale(1.04); }
+}
+
+@keyframes ultraRareVeinsPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.96); opacity: 0.42; }
+  50% { transform: translate(-50%, -50%) scale(1.02); opacity: 0.78; }
+}
+
+@keyframes ultraRareRuneOrbit {
+  0% { opacity: 0.3; filter: brightness(0.8); }
+  50% { opacity: 1; filter: brightness(1.3); }
+  100% { opacity: 0.3; filter: brightness(0.8); }
+}
+
+@keyframes ultraRareShardDrift {
+  0%, 100% { opacity: 0.28; transform-origin: center 80%; }
+  50% { opacity: 1; transform-origin: center 80%; }
+}
+
+@keyframes ultraRareRise {
+  from { transform: translateY(34px) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes ultraRareCrestSpin {
+  from { transform: rotate(0deg) scale(0.92); }
+  50% { transform: rotate(180deg) scale(1.04); }
+  to { transform: rotate(360deg) scale(0.92); }
+}
+
+@keyframes ultraRareCardAuraSpin {
+  from { transform: rotate(0deg) scale(0.94); }
+  50% { transform: rotate(180deg) scale(1.02); }
+  to { transform: rotate(360deg) scale(0.94); }
+}
+
+@keyframes apolloFlameVeil {
+  0% { opacity: 0; transform: scale(0.82); filter: blur(18px); }
+  48% { opacity: 1; transform: scale(1.03); filter: blur(6px); }
+  100% { opacity: 0.82; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes apolloSunHalo {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(0.94); }
+  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.02); }
+  to { transform: translate(-50%, -50%) rotate(360deg) scale(0.94); }
+}
+
+@keyframes etherealBlackout {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes etherealSparkleA {
+  0% { opacity: 0; transform: scale(0.4); }
+  28% { opacity: 1; transform: scale(0.88); }
+  100% { opacity: 0; transform: scale(1.3); }
+}
+
+@keyframes etherealSparkleB {
+  0% { opacity: 0; transform: scale(0.6); }
+  22% { opacity: 0.95; transform: scale(1.04); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+@keyframes etherealFlash {
+  0% { opacity: 0; transform: scale(0.6); }
+  24% { opacity: 1; transform: scale(1.14); }
+  100% { opacity: 0.4; transform: scale(1.55); }
+}
+
+@keyframes etherealArrival {
+  0% { opacity: 0; transform: translateY(30px) scale(0.72); filter: brightness(1.4); }
+  55% { opacity: 1; transform: translateY(-6px) scale(1.06); filter: brightness(1.12); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: brightness(1); }
+}

@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가챠 디펜스</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="settingsOpenBtn" class="iconBtn">설정</button>
+  <div id="settingsPanel" style="display:none">
+    <div id="settingsCard">
+      <div class="settingsHeader">
+        <h3>사운드 설정</h3>
+        <button id="settingsCloseBtn" class="iconBtn small">닫기</button>
+      </div>
+      <div class="settingsGroup">
+        <label for="masterVolume">마스터 볼륨 <span id="masterVolumeVal">70%</span></label>
+        <input id="masterVolume" type="range" min="0" max="100" value="70">
+      </div>
+      <div class="settingsGroup">
+        <label for="uiVolume">UI 사운드 <span id="uiVolumeVal">70%</span></label>
+        <input id="uiVolume" type="range" min="0" max="100" value="70">
+      </div>
+      <div class="settingsGroup">
+        <label for="gachaVolume">가챠 사운드 <span id="gachaVolumeVal">85%</span></label>
+        <input id="gachaVolume" type="range" min="0" max="100" value="85">
+      </div>
+      <div class="settingsGroup">
+        <label for="battleVolume">전투 사운드 <span id="battleVolumeVal">75%</span></label>
+        <input id="battleVolume" type="range" min="0" max="100" value="75">
+      </div>
+      <div class="settingsGroup">
+        <label for="skillVolume">스킬 사운드 <span id="skillVolumeVal">90%</span></label>
+        <input id="skillVolume" type="range" min="0" max="100" value="90">
+      </div>
+    </div>
+  </div>
+
+  <div id="lobbyScreen">
+    <canvas id="lobbyCanvas" width="900" height="600"></canvas>
+    <div id="lobbyUI">
+      <span>코인 <strong id="coinVal">0</strong></span>
+      <span>보유 유닛 <strong id="ownedVal">0</strong></span>
+      <span>가방 <strong id="bagVal">0</strong>/5</span>
+    </div>
+    <div id="interactHint" style="display:none">[ E ] 상호작용</div>
+  </div>
+
+  <div id="gachaScreen" style="display:none">
+    <div id="gachaPanel">
+      <h2>가챠 소환</h2>
+      <p>보유 코인 <strong id="gachaCoinVal">0</strong>으로 원하는 상자를 열 수 있습니다.</p>
+      <div id="gachaChestList"></div>
+      <div id="gachaResult"></div>
+      <button id="gachaBackBtn" class="secondaryBtn">로비로 돌아가기</button>
+    </div>
+  </div>
+
+  <div id="mapSelectScreen" style="display:none">
+    <div id="mapSelectPanel">
+      <div class="panelHeader">
+        <p class="eyebrow">전투 준비</p>
+        <h2 id="mapSelectTitle">맵 선택</h2>
+        <p id="mapSelectDesc" class="panelDesc">전장마다 동선, 적 구성, 최종 보스 웨이브가 다릅니다. 전장 특성에 맞는 편성을 준비해 보세요.</p>
+      </div>
+      <div id="mapCardList"></div>
+      <button id="mapBackBtn" class="secondaryBtn">로비로 돌아가기</button>
+    </div>
+  </div>
+
+  <div id="bagScreen" style="display:none">
+    <div id="bagPanel">
+      <div class="panelHeader">
+        <p class="eyebrow">편성 관리</p>
+        <h2>가방</h2>
+        <p class="panelDesc">전투에 데려갈 유닛을 최대 5개까지 선택할 수 있습니다. 선택한 유닛만 전투 상점에 등장합니다.</p>
+      </div>
+      <p id="bagSummary">선택한 유닛 0 / 5</p>
+      <div id="equippedBagList"></div>
+      <div id="bagCollection"></div>
+      <button id="bagBackBtn" class="secondaryBtn">로비로 돌아가기</button>
+    </div>
+  </div>
+
+  <div id="codexScreen" style="display:none">
+    <div id="codexPanel">
+      <div class="panelHeader">
+        <p class="eyebrow">수집 기록</p>
+        <h2>도감</h2>
+        <p class="panelDesc">보유 중인 캐릭터는 밝게, 아직 없는 캐릭터는 어둡게 표시됩니다. 카드에 마우스를 올리면 상세 정보가 표시됩니다.</p>
+      </div>
+      <div id="codexCollection"></div>
+      <div id="codexDetail" style="display:none"></div>
+      <button id="codexBackBtn" class="secondaryBtn">로비로 돌아가기</button>
+    </div>
+  </div>
+
+  <div id="codexTooltip" style="display:none"></div>
+
+  <div id="battleScreen" style="display:none">
+    <div id="battleTop">
+      <span>맵 <strong id="bMapNameVal">초원 관문</strong></span>
+      <span>웨이브 <strong id="bWaveVal">0</strong></span>
+      <span>기지 HP <strong id="bBaseHpVal">100</strong></span>
+      <span>머니 <strong id="bMoneyVal">500</strong></span>
+      <span>코인 <strong id="bCoinVal">0</strong></span>
+      <span>설치 <strong id="bPlacedVal">0/40</strong></span>
+    </div>
+    <div id="previewControlRow" style="display:none">
+      <button id="previewBackBtn">연습장 나가기</button>
+    </div>
+    <div id="battleControlRow">
+      <div id="speedControls">
+        <button id="speedBtn1" class="speedBtn is-active">1x</button>
+        <button id="speedBtn15" class="speedBtn">1.5x</button>
+        <button id="speedBtn2" class="speedBtn">2x</button>
+      </div>
+      <button id="autoStartBtn">자동 시작 꺼짐</button>
+      <button id="bStartWaveBtn">웨이브 시작</button>
+    </div>
+    <div id="bossBar" style="display:none">
+      <div id="bossBarFill"></div>
+      <div id="bossBarText">보스 등장</div>
+    </div>
+
+    <div id="battleMain">
+      <canvas id="battleCanvas" width="700" height="480"></canvas>
+
+      <div id="unitInfo">
+        <h3>유닛 정보</h3>
+        <div id="unitInfoContent">
+          <p style="color:#76839e;font-size:13px">배치된 유닛을 클릭하면<br>상세 정보가 표시됩니다.</p>
+        </div>
+        <div id="upgradePanel" style="display:none">
+          <hr>
+          <h4>업그레이드</h4>
+          <button id="upgradeBtn" class="upgradeBtn">[E] Lv.2 강화 <span id="upgradeCost"></span></button>
+        </div>
+        <button id="sellUnitBtn" style="display:none">유닛 판매</button>
+      </div>
+    </div>
+
+    <div id="towerShop">
+      <span class="shopLabel">드래그해서 배치</span>
+      <div id="towerList"></div>
+    </div>
+
+    <div id="battleOverlay" style="display:none">
+      <div id="battleOverlayCard">
+        <h2 id="battleOverlayTitle">게임 오버</h2>
+        <p id="battleOverlayText">기지가 무너졌습니다.</p>
+        <button id="battleOverlayBackBtn">로비 귀환</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

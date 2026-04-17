@@ -1,0 +1,153 @@
+:root {
+  --bg-top: #0c1224;
+  --bg-bottom: #1c2746;
+  --panel: rgba(12, 18, 36, 0.84);
+  --panel-strong: rgba(17, 26, 49, 0.96);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f6f8ff;
+  --muted: #98a7c7;
+  --accent: #ff8f70;
+  --accent-soft: #ffd2a8;
+  --mint: #7fe7c4;
+  --blue: #82b7ff;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--text);
+  font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 188, 134, 0.16), transparent 30%),
+    radial-gradient(circle at 20% 20%, rgba(138, 185, 255, 0.18), transparent 25%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+}
+
+button {
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: normal;
+  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+.iconBtn {
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgba(12, 18, 36, 0.82);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.iconBtn.small {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.panelHeader h2 {
+  margin-top: 10px;
+  font-size: 34px;
+}
+
+.panelDesc {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#settingsOpenBtn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 30;
+  background: linear-gradient(135deg, rgba(255, 170, 108, 0.98), rgba(255, 112, 127, 0.96));
+  border: 1px solid rgba(255, 233, 203, 0.42);
+  color: #2b140d;
+  font-weight: 900;
+  box-shadow:
+    0 16px 34px rgba(255, 112, 127, 0.28),
+    0 0 0 1px rgba(255,255,255,0.18) inset;
+}
+
+#settingsPanel {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 7, 16, 0.62);
+  backdrop-filter: blur(12px);
+}
+
+#settingsCard {
+  width: min(420px, calc(100vw - 40px));
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(14, 20, 40, 0.96), rgba(8, 12, 24, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.settingsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.settingsHeader h3 {
+  color: #ffe0b7;
+}
+
+.settingsGroup + .settingsGroup {
+  margin-top: 14px;
+}
+
+.settingsGroup label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: #dce6ff;
+  font-size: 14px;
+}
+
+.settingsGroup input[type="range"] {
+  width: 100%;
+  accent-color: #ff9cbb;
+}
